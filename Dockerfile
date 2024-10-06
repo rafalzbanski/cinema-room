@@ -7,5 +7,10 @@ RUN mvn clean package -DskipTests
 # Stage 2: Run the application
 FROM openjdk:17-jdk-slim
 COPY --from=build /home/app/target/cinema-room-0.0.1-SNAPSHOT.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Expose the PORT environment variable
+ENV PORT 8080
+EXPOSE $PORT
+
+# Set the entry point to use the PORT environment variable
+ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=${PORT}"]
