@@ -1,0 +1,34 @@
+<!-- src/main/resources/templates/statistics.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Statistics</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container mt-4">
+    <h2>Statistics</h2>
+    <ul class="list-group">
+        <li class="list-group-item">
+            Number of available seats: <strong th:text="${availableSeats}"></strong>
+        </li>
+        <li class="list-group-item">
+            Number of purchased seats: <strong th:text="${purchasedSeats}"></strong>
+        </li>
+        <li class="list-group-item">
+            Total earned money: $<strong th:text="${earnedMoney}"></strong>
+        </li>
+    </ul>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js">
+</script>
+</body>
+</html>
