@@ -21,6 +21,7 @@ A simple cinema seat booking application built with Spring Boot and Thymeleaf. U
 - [Installation](#installation)
 - [Project Structure](#project-structure)
 - [Running the Application](#running-the-application)
+- [Endpoints](#endpoints)
 - [License](#license)
 
 ## Features
@@ -209,6 +210,53 @@ docker build -t cinema-room .
 docker run -p 8080:8080 cinema-room
 ```
 Access the application at [http://localhost:8080/](http://localhost:8080/)
+
+## Endpoints
+
+The Cinema Room application provides the following endpoints for interaction:
+
+### Public Endpoints
+- GET /
+  - Description: Displays the welcome page with information about the application.
+  - Example: https://cinema-room.onrender.com/
+  
+- GET /seats
+  - Description: Displays the seating layout, showing available and purchased seats.
+  - Example: https://cinema-room.onrender.com/seats
+    
+- POST /purchase
+  - Description: Processes the purchase of a seat.
+  - Parameters:
+  - `row` (integer): The row number of the seat to purchase.
+  - `column` (integer): The column number of the seat to purchase.
+    
+- GET /return
+  - Description: Displays the return ticket page with a form to enter the ticket ID.
+  - Example: https://cinema-room.onrender.com/return
+- POST /return
+  - Description: Processes the return of a purchased ticket.
+  - Parameters:
+    - `id` (string): The ticket ID in the format `row_column` (e.g., `1_1`).
+
+### Authentication Endpoints
+- GET /login
+  - Description: Displays the admin login page.
+  - Example: https://cinema-room.onrender.com/login
+    
+- POST /login
+  - Description: Processes admin login.
+  - Parameters:
+  - `username` (string): Admin username.
+  - `password` (string): Admin password.
+    
+- GET /logout
+  - Description: Logs out the current user and redirects to the welcome page.
+  - Example: https://cinema-room.onrender.com/logout
+
+#### Admin Endpoints (Requires Authentication)
+- GET /statistics
+  - Description: Displays statistics about ticket sales and cinema occupancy.
+  - Example: https://cinema-room.onrender.com/statistics
 
 ## License
 
