@@ -248,10 +248,6 @@ The Cinema Room application provides the following endpoints for interaction:
   - Parameters:
   - `username` (string): Admin username.
   - `password` (string): Admin password.
-    
-- GET /logout
-  - Description: Logs out the current user and redirects to the welcome page.
-  - Example: https://cinema-room.onrender.com/logout
 
 #### Admin Endpoints (Requires Authentication)
 - GET /statistics
